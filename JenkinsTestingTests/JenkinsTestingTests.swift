@@ -5,18 +5,18 @@
 //  Created by Jesse Steinberg on 5/25/25.
 //
 
-import Testing
 import XCTest
+@testable import JenkinsTesting
 
-struct JenkinsTestingTests {
-
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-    }
+final class JenkinsTestingTests: XCTestCase {
     
-    @Test func testExample() {
+    func testExample() {
         let sum = 2 + 2
         XCTAssertEqual(sum, 4, "Math still works!")
     }
-
+    
+    /*func testFailedExample() {
+        let sum = 5 + 3
+        XCTAssertEqual(sum, 20, "Math isn't working right")
+    }*/
 }
