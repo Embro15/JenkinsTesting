@@ -44,7 +44,49 @@ struct DetailView: View {
 }
 
 
+struct RadioButton<T: Hashable>: View {
+    let label: String
+    let value: T
+    @Binding var selected: T
+
+    var body: some View {
+        Button(action: {
+            selected = value
+        }) {
+            HStack {
+                Image(systemName: selected == value ? "largecircle.fill.circle" : "circle")
+                    .foregroundColor(selected == value ? .blue : .gray)
+                Text(label)
+            }
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+}
+
+struct RadioButtonListView: View {
+    @State private var selectedOption = "Option 1"
+    let options = ["Option 1", "Option 2", "Option 3"]
+
+    var body: some View {
+        VStack {
+            Spacer()
+            VStack(alignment: .center) {
+                ForEach(options, id: \.self) { option in
+                    RadioButton(label: option, value: option, selected: $selectedOption)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
+                Text("Selected: \(selectedOption)")
+                    .padding(.top)
+            }
+            Spacer()
+        }
+        .padding()
+    }
+}
+
+
 
 #Preview {
     ContentView()
+    RadioButtonListView()
 }

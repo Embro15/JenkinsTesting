@@ -12,6 +12,7 @@ struct JenkinsTestingApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            RadioButtonListView()
         }
     }
 }
