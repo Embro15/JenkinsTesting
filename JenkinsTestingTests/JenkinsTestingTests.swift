@@ -16,7 +16,7 @@ final class JenkinsTestingTests: XCTestCase {
     }
     
     func testFailedExample() {
-        let sum = 5 + 3
-        XCTAssertEqual(sum, 20, "Math isn't working right")
+        let sum = 5 + 15
+        XCTAssertEqual(sum, 20, "Math works again")
     }
 }
